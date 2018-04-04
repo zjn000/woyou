@@ -1,0 +1,43 @@
+<div class="panel panel-default panel-intro">
+    {:build_heading()}
+
+    <div class="panel-body">
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="one">
+                <div class="widget-body no-padding">
+                    <div id="toolbar" class="toolbar">
+                        {:build_toolbar('refresh,edit,delete')}
+
+                        <a class="btn btn-success btn-multi btn-disabled disabled" href="javascript:;" data-params="status=1"><i class="fa fa-circle"></i> {:__('Set Online')}</a>
+                        <a class="btn btn-danger btn-multi btn-disabled disabled" href="javascript:;" data-params="status=2"><i class="fa fa-circle-o"></i> {:__('Set Downline')}</a>
+
+                        <div class="dropdown btn-group {:$auth->check('shelvesproduct/multi')?'':'hide'}">
+                            <a class="btn btn-primary btn-more dropdown-toggle btn-disabled disabled" data-toggle="dropdown"><i class="fa fa-cog"></i> {:__('Lv')}</a>
+                            <ul class="dropdown-menu text-left" role="menu">
+                                <li><a class="btn btn-link btn-multi btn-disabled disabled" href="javascript:;" data-params="lv=1"><i class="fa fa-sort-amount-asc"></i> {:__('Set Lv1')}</a></li>
+                                <li><a class="btn btn-link btn-multi btn-disabled disabled" href="javascript:;" data-params="lv=2"><i class="fa fa-sort-amount-asc"></i> {:__('Set Lv2')}</a></li>
+                                <li><a class="btn btn-link btn-multi btn-disabled disabled" href="javascript:;" data-params="lv=3"><i class="fa fa-sort-amount-asc"></i> {:__('Set Lv3')}</a></li>
+                                <li><a class="btn btn-link btn-multi btn-disabled disabled" href="javascript:;" data-params="lv=4"><i class="fa fa-sort-amount-asc"></i> {:__('Set Lv4')}</a></li>
+                                <li><a class="btn btn-link btn-multi btn-disabled disabled" href="javascript:;" data-params="lv=5"><i class="fa fa-sort-amount-asc"></i> {:__('Set Lv5')}</a></li>
+                                <li><a class="btn btn-link btn-multi btn-disabled disabled" href="javascript:;" data-params="lv=6"><i class="fa fa-sort-amount-asc"></i> {:__('Set Lv6')}</a></li>
+                                <li><a class="btn btn-link btn-multi btn-disabled disabled" href="javascript:;" data-params="lv=7"><i class="fa fa-sort-amount-asc"></i> {:__('Set Lv7')}</a></li>
+                                <li><a class="btn btn-link btn-multi btn-disabled disabled" href="javascript:;" data-params="lv=8"><i class="fa fa-sort-amount-asc"></i> {:__('Set Lv8')}</a></li>
+                                <li><a class="btn btn-link btn-multi btn-disabled disabled" href="javascript:;" data-params="lv=9"><i class="fa fa-sort-amount-asc"></i> {:__('Set Lv9')}</a></li>
+                            </ul>
+                        </div>
+
+                        {if $Request.param.ids != null}
+                        <a class="btn btn-primary btn-select" href="javascript:;" data-unique-id="{$Request.param.ids}"><i class="fa fa-list"></i> {:__('Choose Product')}</a>
+                        {/if}
+                    </div>
+                    <table id="table" class="table table-striped table-bordered table-hover" 
+                           data-operate-edit="{:$auth->check('shelvesproduct/edit')}" 
+                           data-operate-del="{:$auth->check('shelvesproduct/del')}" 
+                           width="100%" data-shelves-id="{$Request.param.ids}">
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

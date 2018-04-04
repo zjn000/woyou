@@ -1,0 +1,33 @@
+<?php
+
+return [
+    'Id'  =>  'ID',
+    'Shelves_id'  =>  '货架ID',
+    'Product_id'  =>  '商品ID',
+    'Num'  =>  '剩余数量',
+    'Shelves_name' => '货架名称',
+    'Product_name' => '商品名称',
+    'Product_barcode' => '商品条形码',
+    'Product_image' => '商品图片',
+    'Product_price' => '商品价格',
+    'Online' => '上架',
+    'Set Online' => '设置上架',
+    'Downline' => '下架',
+    'Set Downline' => '设置下架',
+    'Real_amount'  =>  '盘点数量',
+    'Revise'  =>  '下架数量',
+    'Add_num'  =>  '上架数量',
+    'Lv'  =>  '所属层数',
+    'Set Lv1'  =>  '设置为第1层',
+    'Set Lv2'  =>  '设置为第2层',
+    'Set Lv3'  =>  '设置为第3层',
+    'Set Lv4'  =>  '设置为第4层',
+    'Set Lv5'  =>  '设置为第5层',
+    'Set Lv6'  =>  '设置为冰箱1层',
+    'Set Lv7'  =>  '设置为冰箱2层',
+    'Set Lv8'  =>  '设置为冰箱3层',
+    'Set Lv9'  =>  '设置为冰箱4层',
+    'Choose Product'  =>  '选择货架商品',
+    'Standard_number'  =>  '标准数量',
+    'Should_replenish'  =>  '应补货数量'
+];

@@ -1,0 +1,55 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label for="c-s_name" class="control-label col-xs-12 col-sm-2">{:__('Shelves_name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-s_name" class="form-control" name="row[s_name]" type="text" value="{$shelves.name}" readonly />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-p_name" class="control-label col-xs-12 col-sm-2">{:__('Product_name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-p_name" class="form-control" name="row[p_name]" type="text" value="{$product.name}" readonly />
+        </div>
+    </div>
+    <input name="row[p_barcode]" type="hidden" value="{$product.barcode}" readonly />
+
+    <div class="form-group">
+        <label for="c-standard_number" class="control-label col-xs-12 col-sm-2">{:__('Standard_number')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-standard_number" data-rule="required" class="form-control" name="row[standard_number]" type="number" value="{$row.standard_number}" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-before_remaining" class="control-label col-xs-12 col-sm-2">{:__('Num')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-before_remaining" class="form-control" name="row[before_remaining]" type="number" value="{$row.num}" readonly />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="c-real_amount" class="control-label col-xs-12 col-sm-2">{:__('Real_amount')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-real_amount" data-rule="required" class="form-control" name="row[real_amount]" type="number" value="{$row.num}" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-add_num" class="control-label col-xs-12 col-sm-2">{:__('Add_num')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-add_num" data-rule="required" class="form-control" name="row[add_num]" type="number" value="0" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-revise" class="control-label col-xs-12 col-sm-2">{:__('Revise')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-revise" data-rule="required" class="form-control" name="row[revise]" type="number" value="0" />
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

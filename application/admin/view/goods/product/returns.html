@@ -1,0 +1,47 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label for="c-name" class="control-label col-xs-12 col-sm-2">{:__('Name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-name" readonly class="form-control" name="row[name]" type="text" value="{$row.name}">
+        </div>
+    </div>
+    <input id="c-barcode" readonly class="form-control" name="row[barcode]" type="hidden" value="{$row.barcode}">
+
+    <div class="form-group">
+        <label for="c-sup_id" class="control-label col-xs-12 col-sm-2">{:__('Supplier Name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            {:build_select('row[sup_id]', $supplierList, null, ['class'=>'form-control selectpicker', 'data-rule'=>'required'])}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="c-returned_price" class="control-label col-xs-12 col-sm-2">{:__('Returned Price')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-returned_price" data-rule="required" class="form-control" step="0.01" name="row[returned_price]" type="number">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="c-returned_num" class="control-label col-xs-12 col-sm-2">{:__('Returned Num')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-returned_num" data-rule="required" class="form-control" name="row[returned_num]" type="number">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="c-returned_time" class="control-label col-xs-12 col-sm-2">{:__('Returned_time')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-returned_time" data-rule="required" class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" name="row[returned_time]" type="text" value="{:date('Y-m-d')}">
+        </div>
+    </div>
+
+
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

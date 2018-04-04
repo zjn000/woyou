@@ -1,0 +1,28 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>商品名称</th>
+            <th>商品条形码</th>
+            <th>商品图片</th>
+            <th>单价</th>
+            <th>数量</th>
+        </tr>
+    </thead>
+    <tbody>
+        {volist name="data" id="vo"  }
+            <tr>
+                <td>{$vo.name}</td>
+                <td>{$vo.barcode}</td>
+                <td><img src="{$vo.image}" class="img-responsive" width="30" height="30" /></td>
+                <td>{$vo.price}</td>
+                <td>{$vo.num}</td>
+            </tr>
+        {/volist}
+    </tbody>
+</table>
+<div class="hide layer-footer">
+    <label class="control-label col-xs-12 col-sm-2"></label>
+    <div class="col-xs-12" style="text-align: center;">
+        <button type="reset" class="btn btn-primary btn-embossed btn-close" onclick="Layer.closeAll();">{:__('Close')}</button>
+    </div>
+</div>
