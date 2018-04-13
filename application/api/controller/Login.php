@@ -62,7 +62,7 @@ class Login extends Publicapi {
 
         //会话标志，作为用户令牌
         $sign = session_id();
-        $this->jsonReturn(200,'成功',['token'=>$sign]);
+        $this->jsonReturn(200,'成功',['token'=>$sign,'is_bind'=>$user['is_bind']]);
     }
 
 

@@ -17,6 +17,8 @@ class Orderadd extends Api{
 
         //获取用户id
         $userid = Session::get('userInfo')['id'];
+        //是否会员
+        $is_vip = Session::get('userInfo')['is_bind'];
         //货架id
         $sid = intval($request->post('sid'));
 
@@ -61,10 +63,29 @@ class Orderadd extends Api{
         }
 
         //获得购物品相应信息
-        $product_list = db('product')->where('id','IN',$pids)->field('id,name,barcode,price,image')->select();
+        $product_list = db('product')->where('id','IN',$pids)->field('id,name,barcode,price,member_price,image')->select();
+
+
+        $tag = false;
+
+        //判断是否为会员日（星期五）
+        if(date('w') == 5 && $is_vip == 1){
+            $tag = true;
+        }
+
+
+
 
         foreach ($product_list as $key=>$product){
-            $total_list[$key] = $product['price']*$good[$product['id']];
+
+            //判断用户为会员且为会员日则按会员价算
+            if($tag){
+                $price = $product['member_price'];
+            }else{
+                $price = $product['price'];
+            }
+
+            $total_list[$key] = $price*$good[$product['id']];
 
             //订单商品详情参数
             $arrParam[$key]=array(
@@ -72,7 +93,7 @@ class Orderadd extends Api{
                 'name' => $product['name'],
                 'barcode' => $product['barcode'],
                 'image' => $product['image'],
-                'price' => $product['price'],
+                'price' => $price,
                 'num' => $good[$product['id']]
             );
 
@@ -91,7 +112,7 @@ class Orderadd extends Api{
             $this->jsonReturn(400,'非法优惠券');
         }
 
-        //判断参数
+        //判断用户优惠券id参数
         if($c_id > 0){
 
             $coupon_list = model('UserCoupon')->getValidCoupon(intval($userid),$all_total);

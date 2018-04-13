@@ -30,7 +30,7 @@ class Productdetail extends Api{
         }
 
         //总库商品信息
-        $p_obj = db('product')->where('barcode',$code)->field('id,name,barcode,price,image')->find();
+        $p_obj = db('product')->where('barcode',$code)->field('id,name,barcode,price,member_price,image')->find();
 
         if(empty($p_obj)){
             $this->jsonReturn(404,'非本公司商品');
@@ -50,8 +50,6 @@ class Productdetail extends Api{
         if($obj_d['status'] == 2){
             $this->jsonReturn(404,'商品已下架');
         }
-
-
 
         $p_obj['num'] = $obj_d['num'];
 

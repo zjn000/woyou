@@ -29,6 +29,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {field: 'barcode', title: __('Barcode')},
                         {field: 'type', title: __('Type'),searchList:$.getJSON("goods/product/getCategoryList")},
                         {field: 'price', title: __('Price'),operate:false},
+                        {field: 'member_price', title: __('Member Price'),operate:false},
                         {field: 'image', title: __('Image'),operate:false,formatter: Table.api.formatter.image},
                         {field: 'create_time', title: __('Create_time'),operate:false,formatter: Table.api.formatter.datetime},
                         {field: 'inventory', title: __('Inventory'),operate:false},

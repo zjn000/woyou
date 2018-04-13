@@ -33,7 +33,7 @@ class Orderdetail extends Api{
         $data['discount'] = $obj['discount'];
 
         //获取列表订单的所有订单商品集合
-        $deatil_list = Db::name('order_detail')->field('oid,name,price,num')->where('oid',$obj['id'])->select();
+        $deatil_list = Db::name('order_detail')->field('oid,name,price,num,image')->where('oid',$obj['id'])->select();
 
         if(!empty($deatil_list)){
             //商品集合组

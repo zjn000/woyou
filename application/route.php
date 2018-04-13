@@ -15,6 +15,11 @@ use think\Route;
 if (Route::getBind('module') == 'admin')
     return [];
 
+//轮播图
+Route::group('banner',[
+    'index' => 'api/Banner/index'
+],['method' => 'post']);
+
 //优惠券
 Route::group('coupon',[
     'list' => 'api/Coupon/get_list',

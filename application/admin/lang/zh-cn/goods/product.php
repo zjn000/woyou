@@ -5,6 +5,7 @@ return [
     'Name'  =>  '商品名称',
     'Barcode'  =>  '商品条形码',
     'Price'  =>  '售卖价格',
+    'Member Price'  =>  '会员价',
     'Image'  =>  '商品图片',
     'Create_id'  =>  '创建人id',
     'Create_time'  =>  '创建时间',
