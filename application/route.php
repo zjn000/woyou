@@ -15,9 +15,30 @@ use think\Route;
 if (Route::getBind('module') == 'admin')
     return [];
 
-//轮播图
+//工具模块
+Route::group('tools',function (){
+    Route::group('user',[
+        'login'   => ['tools/User/login', ['method' => 'post']],
+        'out' => ['tools/User/drop_out', ['method' => 'get']]
+    ]);
+    Route::group('shelves',[
+        'list'   => ['tools/Shelves/get_list', ['method' => 'get']],
+        'search'   => ['tools/Shelves/search', ['method' => 'get']]
+    ]);
+    Route::group('product',[
+        'list'   => ['tools/Product/get_list', ['method' => 'get']],
+        'search' => ['tools/Product/search', ['method' => 'get']],
+        'save' => ['tools/Product/save', ['method' => 'post']]
+    ]);
+});
+
+
+
+
+//展示图
 Route::group('banner',[
-    'index' => 'api/Banner/index'
+    'index' => 'api/Banner/index',
+    'pop'   =>  'api/Bulletmap/index'
 ],['method' => 'post']);
 
 //优惠券
@@ -63,4 +84,5 @@ Route::group('pay', [
 //FAQ
 Route::group('faq',[
     'feedback' => 'api/Feedback/index',
+    'apply' => 'api/Applylog/index',
 ], ['method' => 'post']);

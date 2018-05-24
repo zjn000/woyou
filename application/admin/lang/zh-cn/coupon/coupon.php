@@ -23,5 +23,6 @@ return [
     'Invalid' => '无效',
     'Set Invalid' => '设置为无效',
     'Push Coupon' => '推送',
-    'Push Phone' => '推送手机'
+    'Push Phone' => '推送手机',
+    'Push Zhang' => '推送张数'
 ];

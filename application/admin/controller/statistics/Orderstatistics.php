@@ -29,17 +29,25 @@ class Orderstatistics extends Backend
         {
 
             $month = trim($this->request->request('month'));
+            $sid = trim($this->request->request('sid'));
 
             $firstday = date('Y-m-01', strtotime($month));
             $lastday = date('Y-m-d', strtotime("$firstday +1 month -1 day"));
 
+            $where = ['status'=>1];
+
+            $shelvesName = '';
+            if(!empty($sid)){
+                $where['sid'] = intval($sid);
+                $shelvesName = Db::name('shelves')->where('id='.$sid)->value('name');
+            }
 
             $list = Db::name('order')
                 ->field("FROM_UNIXTIME(create_time,'%Y-%m-%d') as time")
                 ->field("COUNT(id) as num")
                 ->field("SUM(total) as total")
                 ->field("SUM(discount) as discount")
-                ->where('status=1')->where("FROM_UNIXTIME(create_time,'%Y-%m-%d') BETWEEN '$firstday' AND '$lastday'")
+                ->where($where)->where("FROM_UNIXTIME(create_time,'%Y-%m-%d') BETWEEN '$firstday' AND '$lastday'")
                 ->group('time')
                 ->select();
 
@@ -80,7 +88,7 @@ class Orderstatistics extends Backend
                 'all_discount' => array_sum($series['discount'])
             ];
 
-            $result = array( "rows" => $series,'ddd'=>$ddd,'all_rows'=>$all_row,'summary'=>$summary);
+            $result = array( "rows" => $series,'ddd'=>$ddd,'all_rows'=>$all_row,'summary'=>$summary,'shelvesName'=>$shelvesName);
 
             $this->success('', null, $result);
         }

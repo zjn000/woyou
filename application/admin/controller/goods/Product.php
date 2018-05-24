@@ -21,10 +21,12 @@ class Product extends Backend
      */
     protected $model = null;
 
+    //无需要权限判断的方法
+    protected $noNeedRight = ['getcategorylist'];
+
     protected $modelValidate = true;
 
-    //无需要权限判断的方法
-    protected $noNeedRight = ['getCategoryList'];
+
 
     public function _initialize()
     {

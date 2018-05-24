@@ -24,6 +24,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                 columns: [
                     [
                         {field: 'id', title: __('Id'),operate:false},
+                        {field: 'sid', title: __('Sid')},
                         {field: 's_name', title: __('S_name'),operate:'LIKE'},
                         {field: 'p_name', title: __('P_name'),operate:'LIKE'},
                         {field: 'p_barcode', title: __('P_barcode')},

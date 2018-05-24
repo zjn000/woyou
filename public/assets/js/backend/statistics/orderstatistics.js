@@ -24,7 +24,9 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form', 'echarts', 'echarts-t
                     "</h3></label><label class='control-label col-sm-2'>当月订单总优惠金额<h3>"+data.summary.all_discount+"</h3></label>";
                 two.append(div1);
 
-
+                var three = $("#three");
+                three.html('');
+                three.append(data.shelvesName);
 
 
                 var tbody = $("#table2 tbody");

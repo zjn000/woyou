@@ -87,6 +87,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {field: 'barcode', title: __('Barcode')},
                         {field: 'type', title: __('Type'),searchList:$.getJSON("goods/product/getCategoryList")},
                         {field: 'image', title: __('Image'), operate: false, formatter: Table.api.formatter.image},
+                        {field: 'inventory', title: __('Inventory'), operate: false},
                         {field: 'price', title: __('Price'), operate: false},
                         {field: 'operate', title: __('Operate'), events: {
                             'click .btn-chooseone': function (e, value, row, index) {

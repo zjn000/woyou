@@ -1,0 +1,55 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label for="c-name" class="control-label col-xs-12 col-sm-2">{:__('Name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-name" data-rule="required" class="form-control" name="row[name]" type="text">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="c-image1" class="control-label col-xs-12 col-sm-2">{:__('Image')}1:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="form-inline">
+                <input id="c-image1" data-rule="required" class="form-control" size="50" name="row[image1]" type="text">
+                <span><button type="button" id="plupload-image1" class="btn btn-danger plupload" data-url="{:url('ajax/upload_oss')}" data-input-id="c-image1" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp" data-multiple="false" data-preview-id="p-image1"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+                <span><button type="button" id="fachoose-image1" class="btn btn-primary fachoose" data-input-id="c-image1" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+                <span class="msg-box n-right" for="c-image1"></span>
+                <ul class="row list-inline plupload-preview" id="p-image1"></ul>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-image2" class="control-label col-xs-12 col-sm-2">{:__('Image')}2:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="form-inline">
+                <input id="c-image2" data-rule="required" class="form-control" size="50" name="row[image2]" type="text">
+                <span><button type="button" id="plupload-image2" class="btn btn-danger plupload" data-url="{:url('ajax/upload_oss')}" data-input-id="c-image2" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp" data-multiple="false" data-preview-id="p-image2"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+                <span><button type="button" id="fachoose-image2" class="btn btn-primary fachoose" data-input-id="c-image2" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+                <span class="msg-box n-right" for="c-image2"></span>
+                <ul class="row list-inline plupload-preview" id="p-image2"></ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="c-image3" class="control-label col-xs-12 col-sm-2">{:__('Image')}3:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="form-inline">
+                <input id="c-image3" data-rule="required" class="form-control" size="50" name="row[image3]" type="text">
+                <span><button type="button" id="plupload-image3" class="btn btn-danger plupload" data-url="{:url('ajax/upload_oss')}" data-input-id="c-image3" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp" data-multiple="false" data-preview-id="p-image3"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+                <span><button type="button" id="fachoose-image3" class="btn btn-primary fachoose" data-input-id="c-image3" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+                <span class="msg-box n-right" for="c-image3"></span>
+                <ul class="row list-inline plupload-preview" id="p-image3"></ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

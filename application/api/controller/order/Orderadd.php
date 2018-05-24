@@ -68,13 +68,12 @@ class Orderadd extends Api{
 
         $tag = false;
 
-        //判断是否为会员日（星期五）
-        if(date('w') == 5 && $is_vip == 1){
+        $day = date('w');
+
+        //判断是否为会员日（星期三，四，五）
+        if(($day == 5 || $day == 4 || $day == 3) && $is_vip == 1){
             $tag = true;
         }
-
-
-
 
         foreach ($product_list as $key=>$product){
 
@@ -138,7 +137,7 @@ class Orderadd extends Api{
         $param = array(
             'uid'   => intval($userid),
             'sid'   => intval($sid),
-            'o_no'  => Common::build_order_no(),
+            //'o_no'  => Common::build_order_no(),
             'all_total' => $all_total,
             'uc_id' => $c_id,
             'discount' => $discount,
@@ -152,6 +151,8 @@ class Orderadd extends Api{
         try{
             //添加订单，返回订单id
             $oid = Db::name('order')->insertGetId($param);
+
+            Db::name('order')->update(['id'=>$oid,'o_no' =>date('Ymd').strval($oid)]);
 
             foreach ($arrParam as $key=>$item){
                 $arrParam[$key]['oid'] = $oid;

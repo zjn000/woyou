@@ -13,6 +13,12 @@
 // 定义应用目录
 define('APP_PATH', __DIR__ . '/../application/');
 
+//跨域
+Header("Access-Control-Allow-Origin:*");
+Header("Access-Control-Allow-Credentials:true");
+Header("Access-Control-Allow-Methods:GET,HEAD,OPTIONS,POST,PUT");
+Header("Access-Control-Allow-Headers:Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
+
 // 判断是否安装FastAdmin
 if (!file_exists(APP_PATH . 'admin/command/Install/install.lock'))
 {

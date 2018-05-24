@@ -27,7 +27,7 @@ class Auth extends \fast\Auth
 
     public function login($username, $password, $keeptime = 0)
     {
-        $admin = Admin::get(['username' => $username]);
+        $admin = Admin::get(['username' => $username,'status'=>'normal']);
         if (!$admin)
         {
             return false;

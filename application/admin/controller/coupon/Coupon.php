@@ -123,6 +123,13 @@ class Coupon extends Backend
 
             if ($params)
             {
+                //相当于循环次数
+                $zhang = intval($params['push_zhang']);
+                if($zhang < 1 || $zhang > 10 ){
+                    $this->error('推送张数应在1-10张', '');
+                }
+
+
                 //得到手机号码数组（未过滤，可能有空格）
                 $content = explode("\r\n", $params['content']);
 
@@ -162,10 +169,14 @@ class Coupon extends Backend
 
 
                 try{
-                    //批量添加用户优惠券
-                    Db::name('user_coupon')->insertAll($data);
-                    //批量添加推送记录
-                    Db::name('coupon_push')->insertAll($arrParam);
+
+                    for($i = 0;$i<$zhang;$i++){
+                        //批量添加用户优惠券
+                        Db::name('user_coupon')->insertAll($data);
+                        //批量添加推送记录
+                        Db::name('coupon_push')->insertAll($arrParam);
+                    }
+
                 }catch (Exception $e){
                     $this->error($e);return;
                 }

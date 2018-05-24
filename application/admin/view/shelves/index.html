@@ -14,7 +14,13 @@
                                 <li><a class="btn btn-link btn-multi btn-disabled disabled" href="javascript:;" data-params="status=2"><i class="fa fa-circle-o"></i> {:__('Set Downline')}</a></li>
                             </ul>
                         </div>
+
+                        <a class="btn btn-warning btn-copy" href="javascript:;"><i class="fa fa-list"></i> {:__('Copy Shelves Product')}</a>
+
                     </div>
+
+
+
                     <table id="table" class="table table-striped table-bordered table-hover"
                            data-operate-edit="{:$auth->check('shelves/edit')}"
                            data-operate-detail="{:$auth->check('shelvesproduct/index')}"

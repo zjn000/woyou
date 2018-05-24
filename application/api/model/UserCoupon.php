@@ -117,7 +117,7 @@ class UserCoupon extends Model
 
         //是否全部
         if($all){
-            return $list;
+            return array_values($list);
         }
 
         //先获取数组中num2列的值组成新的数组（不保留索引）

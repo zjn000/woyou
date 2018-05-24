@@ -33,7 +33,16 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {field: 'URL', title: __('URL'),operate: false},
                         {field: 'status', title: __('Status'),searchList:{"0":__('Not reviewed'),"1":__('Online'),"2":__('Downline')}, formatter: Controller.api.formatter.status},
                         {field: 'create_time', title: __('Create_time'),operate: false, formatter: Table.api.formatter.datetime},
-                        {field: 'operate', title: __('Operate'), table: table,events: Table.api.events.operate,formatter: Table.api.formatter.operate}
+                        {field: 'operate', title: __('Operate'), table: table,events: Table.api.events.operate,
+                            buttons: [{
+                                name: 'delivery',
+                                text: __('Export Delivery Note'),
+                                icon: 'fa fa-send',
+                                classname: 'btn btn-info btn-xs btn-detail',
+                                url: 'shelves/export_inventory'
+                            }],
+
+                            formatter: Table.api.formatter.operate}
                     ]
                 ],
                 search: false,
@@ -41,6 +50,13 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
 
             // 为表格绑定事件
             Table.api.bindevent(table);
+
+            $(document).on("click", ".btn-copy", function () {
+                Fast.api.open("shelves/copy", __('Copy Shelves Product'));
+            });
+        },
+        copy:function () {
+            Controller.api.bindevent();
         },
         add: function () {
             Controller.api.bindevent();

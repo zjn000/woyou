@@ -18,5 +18,9 @@ return [
     'Online' => '上线',
     'Set Online' => '设置上线',
     'Downline' => '下线',
-    'Set Downline' => '设置下线'
+    'Set Downline' => '设置下线',
+    'Copy Shelves Product' => '复制货架商品',
+    'Source Shelves' => '源货架',
+    'Target Shelf' => '目标货架',
+    'Export Delivery Note' => '导出送货单'
 ];

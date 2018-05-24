@@ -38,6 +38,12 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                 //这里可以获取从服务端获取的JSON数据
                 $("#two").html('');
                 $("#two").append("&nbsp;当页商品销售总数:<label style='color: red;'>"+data.pageNum+"</label>&emsp;当页商品销售总额:<label style='color: red;'>"+data.pageTotal+"</label>&nbsp;");
+
+                // csv导出按钮事件
+                $('#toolbar').on('click', '.btn-csv', function () {
+                    window.location.href=data.export_url;
+                });
+
             });
 
 

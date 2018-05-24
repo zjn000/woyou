@@ -7,12 +7,22 @@
                         <div class="row">
 
                             <div class="form-group col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                                <label for="c-month" class="control-label col-xs-4">投放日期</label>
+                                <label for="c-month" class="control-label col-xs-4">当前月份</label>
                                 <div class="col-xs-8">
                                     <input id="c-month" data-rule="required" class="form-control datetimepicker"
                                            data-date-format="YYYY-MM" data-use-current="true" name="month" type="text"
                                            value="{:date('Y-m')}">
                                 </div>
+                            </div>
+                            <div class="form-group col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                <label for="c-sid" class="control-label col-xs-4">货架ID</label>
+                                <div class="col-xs-8">
+                                    <input id="c-sid" class="form-control" name="sid" type="text" value="">
+                                </div>
+                            </div>
+
+                            <div class="form-group col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                <label class="control-label col-xs-8"><span id="three" style="text-align: center;"></span></label>
                             </div>
 
                             <div class="form-group col-xs-12 col-sm-6 col-md-4 col-lg-3">
@@ -25,6 +35,8 @@
                     </fieldset>
                 </form>
             </div>
+
+
             <table id="table" class="table table-striped table-bordered table-hover" width="100%">
                 <div class="row">
                     <div class="col-lg-12">
